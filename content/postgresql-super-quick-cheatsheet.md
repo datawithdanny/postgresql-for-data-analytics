@@ -276,7 +276,7 @@ FROM trading.members;
 ```
 
 | first_name | first_character |
-| -----------+---------------- |
+| ---------- | --------------- |
 | Danny      | D               |
 | Vipul      | V               |
 | Charlie    | C               |
@@ -303,7 +303,7 @@ FROM trading.members;
 ```
 
 | first_name | last_character |
-| -----------+--------------- |
+| ---------- | -------------- |
 | Danny      | y              |
 | Vipul      | l              |
 | Charlie    | e              |
