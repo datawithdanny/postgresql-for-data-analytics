@@ -12,7 +12,8 @@
 - [Basic Operations](#basic-operations)
   - [Return Top 5 Rows](#return-top-5-rows)
   - [Sort Outputs in Alphabetical Order](#sort-outputs-in-alphabetical-order)
-  - [Where Filter on Strong Column](#where-filter-on-strong-column)
+  - [Record Counts](#record-counts)
+  - [Where Filter on String Column](#where-filter-on-string-column)
   - [Where Filter for Not Equal](#where-filter-for-not-equal)
   - [Multiple Where Filters with Dates](#multiple-where-filters-with-dates)
   - [Get Unique Vales From Column](#get-unique-vales-from-column)
@@ -104,8 +105,10 @@ ORDER BY first_name;
 | 6512bd    | Vikram     | India         |
 | c81e72    | Vipul      | United States |
 
+## Record Counts
+
 ```sql
--- Record counts
+-- Record counts including nulls
 SELECT COUNT(*) FROM trading.prices;
 ```
 
@@ -113,7 +116,31 @@ SELECT COUNT(*) FROM trading.prices;
 | ----- |
 |  3404 |
 
-## Where Filter on Strong Column
+
+```sql
+-- Record counts from a column excluding nulls
+DROP TABLE IF EXISTS test;
+CREATE TEMP TABLE test (
+  a INTEGER
+);
+INSERT INTO test values (1), (2), (3), (null);
+```
+
+**Compare these 2 query outputs:**
+
+> `SELECT COUNT(*) FROM test;`
+
+| count |
+| ----- |
+|     4 |
+
+> `SELECT COUNT(a) FROM test;`
+
+| count |
+| ----- |
+|     3 |
+
+## Where Filter on String Column
 
 ```sql
 -- Where Filter on String Column
